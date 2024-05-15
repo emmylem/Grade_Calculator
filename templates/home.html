@@ -6,33 +6,33 @@
 {% if messages %}
 {% for msg in messages %}
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    var modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
-    modal.show();
+  jQuery(window).on('load', function () {
+    jQuery('#staticBackdrop').modal('show');
   });
 </script>
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade in show" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">{{msg}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-        <form action="/" method="POST">
-          <div class="mb-3">
-            <label for="lang" class="form-label">{{_('Select Language')}}</label>
-            <select class="form-select form-select-lg" id="lang" name="lang">
-              <option value="th">ไทย</option>
-              <option value="en">English</option>
+        <fieldset class="form-group">
+          <form action="/" method="POST">
+            <select class="form-control form-control-lg" id="lang" name="lang">
+              <option>ไทย</option>
+              <option>English</option>
             </select>
-          </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">{{_('Apply Settings')}}</button>
+        <input type="submit" class="btn btn-primary" value="ใช้การตั้งค่า/Apply Settings" id="submit"/>
       </div>
       </form>
+      </fieldset>
     </div>
   </div>
 </div>
@@ -40,7 +40,7 @@
 {% endif %}
 {% endwith %}
 {% endblock %}
-
+<br><br><br><br><br><br>
 <header align="center" style="max-width: 500px; margin-left: auto; margin-right: auto">
   <div class='main_box'>
     <br>
@@ -48,29 +48,28 @@
     <div class="shadow-lg mb-5 bg-white rounded">
       <img src="static/bcis_logo.png" width="100" height="100" class="rounded mx-auto d-block" alt="BCIS LOGO">
       <i>
-        <h2>Grade Calculator</h2>
+        <h2>Parin's Grade Calculator</h2>
         <h3>
-          <p>{{_('Choose one option that is for your Class!')}}</p>
+          <p>Choose one option that is for your Class!</p>
         </h3>
-      </i>
-    </div>
+      </i></div>
     <nav style="font-size:20px">
 
       <br>
 
-      <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/standards'">
-        HS Standard Class
+      <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/elementary'">
+        Elementary Class (Gr.1-6)
       </button>
 
       <br>
       <br>
 
       <button type="button" class="btn btn-warning btn-lg" onclick="window.location.href='/standards'">
-        Elementary Class (Gr.1-6)
+        HS Standard Class
       </button>
       <br>
       <br>
-      <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/standards'">
+      <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/honors'">
         HS Honors Class
       </button>
 
@@ -78,17 +77,18 @@
       <br>
       <br>
       <h3>
+        <p>Made by: Parinthapat Pengpun</p>
       </h3>
 
 
       <p>
-      <h6>{{_('Created')}}: 12/5/2024</h6>
+      <h6>Created: 5/7/2020</h6>
       </p>
       <p>
-      <h6>{{_('Last Updated')}}: 15/5/2024</h6>
+      <h6>Last Updated: 7/11/2020</h6>
       </p>
       <p>
-      <h6>{{_('Version')}}: 1.01 </h6>
+      <h6>Version: Final </h6>
       </p>
       <p>
       </p>
@@ -97,6 +97,5 @@
 
   </div>
 </header>
-
+<br><br><br><br>
 {% endblock content %}
-
