@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<script src="{{ url_for('static', filename='standard.js' )}}"></script>
+{% endblock header %}
+
+{% block content %}
+
+<header align="center" style="max-width: 500px; margin-left: auto; margin-right: auto; border-bottom: 5px solid #000;">
+    <div class='main_box'>
+        <br><br>
+        <i>
+            <h3>{{ _('Instructions') }}</h3>
+            <h5>
+                <p>
+                    {{ _('Tap/Click each space and input your grades as numbers (No percentage
+                    sign). As you finish typing your grade will be in the box') }}
+                </p>
+                <hr>
+            </h5>
+        </i>
+        <br>
+        <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='/help'">
+            {{_('What are Core/Electives Subjects?')}}
+        </button>
+        <br>
+        <br>
+        <fieldset class="form-group">
+  <form action="/standards" method="POST">
+    <div class="form-container">
+      <h2>Grade Calculator</h2>
+      <div class="form-group">
+        <label for="core1">
+          {{_('Core Subject')}} 1:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="core">
+      </div>
+
+      <div class="form-group">
+        <label for="core2">
+          {{_('Core Subject')}} 2:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="core">
+      </div>
+
+      <div class="form-group">
+        <label for="core3">
+          {{_('Core Subject')}} 3:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="core">
+      </div>
+
+      <div class="form-group">
+        <label for="core4">
+          {{_('Core Subject')}} 4:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="core">
+      </div>
+
+      <hr>
+      <div class="form-group">
+        <label for="elective1">
+          {{_('Elective Subject')}} 1:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="elective">
+      </div>
+
+      <div class="form-group">
+        <label for="elective2">
+          {{_('Elective Subject')}} 2:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="elective">
+      </div>
+
+      <div class="form-group">
+        <label for="elective3">
+          {{_('Elective Subject')}} 3:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="elective">
+      </div>
+
+      <div class="form-group">
+        <label for="elective4">
+          {{_('Elective Subject')}} 4:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="elective">
+      </div>
+
+      <div class="form-group">
+        <label for="elective5">
+          {{_('Elective Subject')}} 5:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="elective">
+      </div>
+
+      <div class="form-group">
+        <label for="elective6">
+          {{_('Elective Subject')}} 6:
+        </label>
+        <input onchange="CalculateGrade()" type="text" placeholder="  100" class="u-full-width" name="elective">
+      </div>
+
+      
+    </div>
+  </form>
+</fieldset>
+  
+
+        <br>
+        <div id="result" class="alert alert-primary" role="alert"><b style="font-size: 20px;">
+                {% if final_grade %} <b style="font-size: 40px;"> {{ final_grade }} </b> {% else %} {{_('YOUR GRADE WILL BE
+                HERE!')}} {% endif %}
+            </b>
+        </div>
+        <p>Out of 5.0</p>
+        <br><br>
+        <br>
+
+       <div class="form-group">
+         <button type="submit" onclick="window.location.href='/'">:-Back Home</button>
+       </div>
+
+    </div>
+</header>
+
+<br>
+{% endblock content %}

@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block header %}
+<script src="{{ url_for('static', filename='elementary.js' )}}"></script>
+{% endblock header %}
+
+{% block content %}
+
+    <header align="center" style="max-width: 500px; margin-left: auto; margin-right: auto">
+      <div class='main_box'>
+          <br><br>
+          <i><h3>{{_('Instructions')}}</h3>
+      <h5><p>{{_('Tap/Click each space and input your grades as numbers (No percentage sign). As you finish typing the grade will appear.')}}</p></h5></i>
+        <br>
+          <br>
+          <br>
+              <fieldset class="form-group">
+                  <form action="/elementary" method="POST">
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm">
+                            <label for="sub1">
+                                Math: 
+                            </label>
+                            <br>
+                            <label for="sub2">
+                                Science: 
+                            </label>
+                            <br>
+                            <label for="sub3">
+                                Reading: 
+                            </label>
+                            <br>
+                            <label for="sub4">
+                                Social Studies 
+                            </label>
+                            <br>
+                            <label for="sub5">
+                                LA: 
+                            </label>
+                          </div>
+                          <div class="col-sm">
+                            <input
+                      type="text"
+                      placeholder="  100"
+                      class="u-full-width"
+                      name="sub"
+                      >
+                      <br>
+                      <input
+                      onchange="CalculateGrade()"
+                        type="text"
+                        placeholder="  100"
+                        class="u-full-width"
+                        name="sub"
+                        >
+                    <br>
+                        <input
+                        onchange="CalculateGrade()"
+                            type="text"
+                            placeholder="  100"
+                            class="u-full-width"
+                            name="sub"
+                            >
+                            <br>
+                            <input
+                            onchange="CalculateGrade()"
+                            type="text"
+                            placeholder="  100"
+                            class="u-full-width"
+                            name="sub"
+                            >
+                            <br>
+                            <input
+                            onchange="CalculateGrade()"
+                            type="text"
+                            placeholder="  100"
+                            class="u-full-width"
+                            name="sub"
+                            >
+<br>
+                          </div>
+                        </div>
+                    </div>
+    
+<br>
+<br>
+                      
+
+                  </form>
+                  </fieldset>
+
+          <br>
+          <div id="result" class="alert alert-primary" role="alert"><b>
+              {% if final_grade %} {{ final_grade }} {% else %} {{_('YOUR GRADE WILL BE HERE!')}} {% endif %}
+            </b>
+          </div>
+          <p>{{_('Out of 100')}}</p>
+          <br><br>
+      <br>
+      <button type="button" class="btn btn-dark" onclick="window.location.href='/'">
+        <-- Back Home</button>
+
+    </header>
+
+    <br>
+{% endblock content %}

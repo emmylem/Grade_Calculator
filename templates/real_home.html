@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% block flash %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+<!-- <script type="text/javascript">
+  jQuery(window).on('load', function () {
+    jQuery('#staticBackdrop').modal('show');
+  });
+</script>
+<div class="modal fade in show" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">{{msg}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <fieldset class="form-group">
+          <form action="/" method="POST">
+            <select class="form-control form-control-lg" id="lang" name="lang">
+              <option>ไทย</option>
+              <option>English</option>
+            </select>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn btn-primary" value="ใช้การตั้งค่า/Apply Settings" id="submit"/>
+      </div>
+      </form>
+      </fieldset>
+    </div>
+  </div>
+</div> -->
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% endblock %}
+<br><br><br><br><br><br>
+<header align="center" style="max-width: 500px; margin-left: auto; margin-right: auto">
+  <div class='main_box'>
+    <br>
+
+    <div class="shadow-lg mb-5 bg-white rounded">
+      <img src="static/bcis_logo.png" width="100" height="100" class="rounded mx-auto d-block" alt="BCIS LOGO">
+      <i>
+        <h2>Grade Calculator</h2>
+        <h3>
+          <p>{{_('Choose one option that is for your Class!')}}</p>
+        </h3>
+      </i></div>
+    <nav style="font-size:20px">
+
+      <br>
+
+      <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/standards'">
+        HS Standard Class
+      </button>
+
+      <br>
+      <br>
+
+      <button type="button" class="btn btn-warning btn-lg" onclick="window.location.href='/standards'">
+        Elementary Class (Gr.1-6)
+      </button>
+      <br>
+      <br>
+      <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/standards'">
+        HS Honors Class
+      </button>
+
+      </h4>
+      <br>
+      <br>
+      <h3>
+      </h3>
+
+
+      <p>
+      <h6>{{_('Created')}}: 5/7/2020</h6>
+      </p>
+      <p>
+      <h6>{{_('Last Updated')}}: 5/12/2020</h6>
+      </p>
+      <p>
+      <h6>{{_('Version')}}: 2.1 </h6>
+      </p>
+      <p>
+      </p>
+
+    </nav>
+
+  </div>
+</header>
+<br><br><br><br>
+{% endblock content %}
